@@ -1,0 +1,35 @@
+<html>
+<body>
+  <a href="/Calculator/apitest">test</a>
+  <form method="post" action="/Calculator/home/">
+    {% csrf_token %}
+  <div id="json_input">
+    <input name ="json_input" type="json" placeholder="JSON">
+  </div>
+
+  <div id="model">
+     <select id="model_selected" name="model_selected">
+
+      <option value="" disabled selected>Select model</option>
+       {% for fn in functions %}
+       <option value="{{fn}}">{{fn}}</option>
+       {% endfor %}
+    </select>
+  </div>
+
+  <div id="generate">
+
+      <input type="submit" value="Generate"/>
+
+  </div>
+
+  <br>
+
+  <div id="output">
+    <textarea id ="json_output" rows="4" cols="30" placeholder="Output will appear here">{{output_json}}</textarea>
+  </div>
+
+  API:{{link}}
+   </form>
+</body>
+</html>
